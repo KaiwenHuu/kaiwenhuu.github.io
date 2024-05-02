@@ -2,9 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const ArtsPage = ({ data }) => {
+const ArtPage = ({ data }) => {
   return (
-    <Layout pageTitle="Arts">
+    <Layout pageTitle="Art">
       <p>
       I usually draw in my spare time, and here are some of my works that I particularly like, displayed in no particular order. These pieces were mostly created using Procreate. I don't have any specific brush or style that I use; it really depends on my mood. If I feel like being more organized, I will use layers and so forth, but if I'm in the mood for a more unpredictable process, I might not use any. If anyone is willing to share their Photoshop account with me, please let me know. You can find other drawings that didn't make it here and the time lapses of these <a href='https://www.instagram.com/kaiwen_huu/'>here</a>.
       </p>
@@ -38,4 +38,4 @@ export const query = graphql`
     }
   `
 
-export default ArtsPage
+export default ArtPage

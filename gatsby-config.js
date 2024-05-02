@@ -20,6 +20,13 @@ module.exports = {
         buckets: [process.env.AWS_BUCKET],
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `note`,
+        path: `${__dirname}/note`,
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-image'
