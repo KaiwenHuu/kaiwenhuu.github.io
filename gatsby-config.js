@@ -23,12 +23,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: `note`,
-        path: `${__dirname}/note`,
+        name: `notes`,
+        path: `${__dirname}/notes`,
       }
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    'gatsby-image'
+    'gatsby-image',
+    "gatsby-plugin-mdx",
   ],
 }
