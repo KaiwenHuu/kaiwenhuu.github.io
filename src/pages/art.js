@@ -11,7 +11,7 @@ const ArtPage = ({ data }) => {
       <ul>
         {
           data.images.nodes.map(node => (
-            <img src={node.localFile.childImageSharp.fluid.src} width="250"></img>
+            <img src={node.localFile.childImageSharp.fluid.src} width="300" alt=""></img>
           ))
         }
         </ul>
