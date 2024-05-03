@@ -15,7 +15,7 @@ const DistributedSystemsPage = ( {data} ) => {
         data.allMdx.nodes.map((node) => (
           <article key={node.id}>
             <li>
-              <Link to={`/notes/${node.frontmatter.slug}`}>
+              <Link to={`./${node.frontmatter.slug}`}>
                 {node.frontmatter.title}
               </Link>
             </li>
