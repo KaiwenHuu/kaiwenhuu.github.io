@@ -7,10 +7,12 @@ import { Link, graphql } from 'gatsby'
 const MicroTheoryPage = ( {data} ) => {
   return (
     <Layout pageTitle="Micro Theory">
-      <p>At first glance, the connection between microeconomics and engineering may not be immediately apparent to a casual observer. Yet, as computational capabilities have dramatically improved, the ability to apply and validate microeconomic theories in practical scenarios has grown significantly. This intersection is particularly fascinating when viewed through the lens of data science, where economic principles can be rigorously tested and applied. Here are some topics that I find particularly interesting.</p>
+      <p>
+        At first glance, the connection between microeconomics and engineering may not be immediately apparent to a casual observer. Yet, as computational capabilities have dramatically improved, the ability to apply and validate microeconomic theories in practical scenarios has grown significantly. This intersection is particularly fascinating when viewed through the lens of data science, where economic principles can be rigorously tested and applied. Here are some topics that I find particularly interesting.
+      </p>
       <ul>
       {
-        data.allMdx.nodes.map((node) => (
+        data.allMarkdownRemark.nodes.map((node) => (
           <article key={node.id}>
             <li>
               <Link to={`./${node.frontmatter.slug}`}>
@@ -27,8 +29,8 @@ const MicroTheoryPage = ( {data} ) => {
 
 export const query = graphql`
   query {
-    allMdx(
-      filter: {internal: {contentFilePath: {regex: "/microtheory/"}}}
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex: "/microtheory/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {

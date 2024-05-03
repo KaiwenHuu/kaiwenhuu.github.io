@@ -7,6 +7,7 @@ import {
     navLinkItem,
     navLinkText
 } from './layout.module.css'
+import 'katex/dist/katex.min.css';
 
 const Layout = ({ pageTitle, children }) => {
     return (

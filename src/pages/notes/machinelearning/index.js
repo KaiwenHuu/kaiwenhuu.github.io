@@ -8,11 +8,11 @@ const MachineLearningPage = ( {data} ) => {
   return (
     <Layout pageTitle="Machine Learning">
       <p>
-      Machine Learning is a broad and dynamic field that spans from foundational statistical methods to advanced areas like Deep Learning and Generative AI. Given the expansive scope of this discipline, organizing thoughts and insights can be challenging. To bring clarity and structure to this complex subject, I have categorized my knowledge into distinct, somewhat orthogonal areas. If it gets overwhelming, I might split some of these into its own sections.
+        Machine Learning is a broad and dynamic field that spans from foundational statistical methods to advanced areas like Deep Learning and Generative AI. Given the expansive scope of this discipline, organizing thoughts and insights can be challenging. To bring clarity and structure to this complex subject, I have categorized my knowledge into distinct, somewhat orthogonal areas. If it gets overwhelming, I might split some of these into its own sections.
       </p>
       <ul>
       {
-        data.allMdx.nodes.map((node) => (
+        data.allMarkdownRemark.nodes.map((node) => (
           <article key={node.id}>
             <li>
               <Link to={`./${node.frontmatter.slug}`}>
@@ -29,8 +29,8 @@ const MachineLearningPage = ( {data} ) => {
 
 export const query = graphql`
   query {
-    allMdx(
-      filter: {internal: {contentFilePath: {regex: "/machinelearning/"}}}
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex: "/machinelearning/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {

@@ -1,10 +1,10 @@
 // Step 1: Import React
 import * as React from 'react'
 import Layout from '../../components/layout'
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 // Step 2: Define your component
-const NotesPage = ( {data} ) => {
+const NotesPage = () => {
   return (
     <Layout pageTitle="Notes">
       <p>Here are some notes that I have compiled to organize my thoughts while learning new concepts.</p>
@@ -28,22 +28,6 @@ const NotesPage = ( {data} ) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    allMdx(sort: { frontmatter: { date: ASC }}) {
-      nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-          slug
-        }
-        id
-        excerpt
-      }
-    }
-  }
-`
 
 // Step 3: Export your component
 export default NotesPage
