@@ -21,11 +21,11 @@ $$\hat{\beta} = \underset{\beta}{\arg \min} \left\{\frac{1}{2}(y-X\beta)^T(y-X\b
 
 $$\hat{\beta} = (X^TX)^{-1}X^Ty$$
 
-If we have the matrix of $X$ and vector $y$, then the OLS estimator is very easy to compute. The overall computation cost is $O(nk^2 + k^3)$ because:
+If we have the matrix of $X$ and vector $y$, then the OLS estimator is very easy to compute. The overall computation cost is $O(nd^2 + d^3)$ because:
 
-- Solving $X^Ty$ is $O(nk)$.
-- Solving $X^TX$ is $O(nk^2)$.
-- Solving $\hat{\beta} = (X^TX)^{-1}X^Ty$ is $O(k^3)$
+- Solving $X^Ty$ is $O(nd)$.
+- Solving $X^TX$ is $O(nd^2)$.
+- Solving $\hat{\beta} = (X^TX)^{-1}X^Ty$ is $O(d^3)$
 
 ### Robust Regression
 
