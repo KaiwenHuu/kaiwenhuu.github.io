@@ -24,6 +24,11 @@ const NotesPage = () => {
             Distributed Systems
           </Link>
         </li>
+        <li>
+          <Link to="/notes/pytorch">
+            Distributed Systems
+          </Link>
+        </li>
       </ul>
     </Layout>
   )

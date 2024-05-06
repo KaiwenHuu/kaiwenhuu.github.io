@@ -130,12 +130,12 @@ const IndexPage = () => {
       <p>
         Ever since purchasing the 13 inch iPad Pro in 2019, I have extensively used it for school, work, and leisure - watching Youtube or Netflix in the hot tub after a long day at work is the way to go. Sometimes I have to shuffle through my notes to remember how to use trivial technology like git. However, as storage has accumulated, navigating through my past notes on the tablet has become increasingly challenging. I have decided to use this space to reorganize and showcase anything interesting or useful that I have stored on the device. 
       </p>
-      <p>
+      {/* <p>
         A little about myself: I studied Economics at UBC, concentrating on microeconomics, computational methods, and machine learning. My interest was particularly sparked by the challenge of implementing and scaling microeconomic models on various platforms. Since graduating, I have worked as a software engineer and data scientist in Japan. If you have similar academic or technological interests, or if you'd like to discuss some of my novice artwork, please feel free to reach out. I'm always open to connecting and sharing ideas.
       </p>
       <p>
         I also lived in Beijing during high school.
-      </p>
+      </p> */}
       {/* <main style={pageStyles}>
       <h1 style={headingStyles}>
         Congratulations
