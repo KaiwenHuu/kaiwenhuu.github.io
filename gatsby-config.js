@@ -15,7 +15,7 @@ module.exports = {
         aws: {
           accessKeyId: process.env.AWS_ACCESS_KEY_ID,
           secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-          region: process.env.AWS_REGION  // Replace with your bucket's region
+          region: process.env.AWS_REGION
         },
         buckets: [process.env.AWS_BUCKET],
       },
@@ -30,21 +30,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-image',
-    // `gatsby-plugin-mdx`,
-    // {
-    //   resolve: `gatsby-plugin-mdx`,
-    //   options: {
-    //     extensions: [`.mdx`, `.md`],
-    //     gatsbyRemarkPlugins: [],
-    //     providers: { // This part is for adding the React components
-    //       components: {
-    //         // Import and add react-katex component
-    //         InlineMath: require('react-katex').InlineMath,
-    //         BlockMath: require('react-katex').BlockMath
-    //       },
-    //     },
-    //   },
-    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
