@@ -113,15 +113,13 @@ Notice that $\max\{0, -y_i\beta^TX_i\} \approx \log(exp(0)+\exp(-y_i\beta^TX_i))
 
 $$f(\beta) = \sum_{i=1}^n \log(1+\exp(-y_i\beta^TX_i))$$
 
-Now $f(0) = n\log(2)$.
-
 ### Sigmoid
 
 Let $z_i = \beta^TX_i$. Then to get the probability that $z_i = 1$, we can use the sigmoid function.
 
 $$h(z_i) = \frac{1}{1+\exp(-z_i)}$$
 
-$$\mathbb{P}(y_i = 1|\beta, X_i) = \frac{1}{1+\exp(-\beta^TX_i)}$$
+$$P(y_i = 1 \mid \beta, X_i) = \frac{1}{1+\exp(-\beta^TX_i)}$$
 
 ### Multi Class Linear Classifiers (Multi-Class SVM)
 
@@ -159,10 +157,14 @@ $$f(\beta) = \sum_{i=1}^n\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^TX+\beta_c^TX_i
 
 The degenerate constraint in the multi-class case and its approximation can be written as
 
-$$\beta_{y_i}^TX_i\geq \mathop{\max}_c\{\beta_c^TX_i\}$$
+$$\beta_{y_i}^TX_i\geq \underset{c}{\max}\{\beta_c^TX_i\}$$
 
 $$\beta_{y_i}^TX_i\geq \log\left(\sum_{c=1}^k \exp(\beta_c^TX_i)\right)$$
 
 The loss function from multi-class smoothed approximation degenerate max constraint is the soft max loss. When $k = 2$, then it is equivalent to the binary logistic loss.
 
 $$f(\beta) = \sum_{i=1}^n\left[-\beta_{y_i}^TX_i + \log\left(\sum_{c=1}^k \exp(\beta_c^TX_i)\right)\right] + \frac{\alpha}{2}\sum_{c=1}^k{||\beta_c||}^2$$
+
+Also, the soft max function gives us
+
+$$P(y_i = c \mid \beta, X_i) = \frac{\exp(\beta_{c}^TX_i)}{\sum_{c'=1}^k \exp(\beta_{c'}^TX_i)}$$
