@@ -6,7 +6,7 @@ slug: "neural-network"
 
 ## Neural Network
 
-Consider $f(x) = v^Th(Wx)$ where $x\in \mathbb{}^{d\times 1}, W\in \mathbb{R}^{k\times d}$, and $h$ is some non-linear transformation. The hidden layer is size $k$ and usual candidates for a single hidden layer network is sigmoid or tanh.
+Consider $f(x) = v^Th(Wx)$ where $x\in \mathbb{R}^{d\times 1}, W\in \mathbb{R}^{k\times d}$, and $h$ is some non-linear transformation. The hidden layer is size $k$ and usual candidates for a single hidden layer network is sigmoid or tanh.
 
 We want to have $\hat{y} = f(x)$, so we want an estimate for $v$ and $W$. Just like with least squares, we can minimize the squared loss.
 
