@@ -5,7 +5,7 @@ slug: "linear-models"
 ---
 ## Linear Classfiers
 
-Let us assume that we believe that a certain outcome $y$ is a linear combination of $X_1, \dots ,X_k$ and some unobservable $U$.
+Let us assume that we believe that a certain outcome $y$ is a linear combination of $X_1, \dots ,X_d$ and some unobservable $U$.
 
 $$y = X\beta + U: y \in \mathbb{R}^{n \times 1}, X \in \mathbb{R}^{n \times d}, \beta \in \mathbb{R}^{d \times 1}, U \in \mathbb{R}^{n \times 1}$$
 
