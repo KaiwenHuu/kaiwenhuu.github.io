@@ -6,7 +6,7 @@ slug: "neural-network"
 
 ## Neural Network
 
-Consider $f(x) = v^Th(Wx)$ where $x\in \mathbb{R}^{d\times 1}, W\in \mathbb{R}^{k\times d}$, and $h$ is some non-linear transformation. The hidden layer is size $k$ and usual candidates for a single hidden layer network is sigmoid or tanh.
+Consider $f(x) = v^Th(Wx)$ where $x\in \mathbb{R}^{d\times 1}, W\in \mathbb{R}^{k\times d}$, and $h:\mathbb{R}^k \to \mathbb{R}^k$ is some non-linear transformation. The hidden layer is size $k$ and usual candidates for a single hidden layer network is sigmoid or tanh.
 
 We want to have $\hat{y} = f(x)$, so we want an estimate for $v$ and $W$. Just like with least squares, we can minimize the squared loss.
 
@@ -26,3 +26,22 @@ Some tricks to make neural networks perform better:
 
 - Add bias term.
 - Add skip connection: $\hat{y} = w^Tx + v^Th(Wx)$
+
+### Deep Learning
+
+Deep Learning is simply a neural network with more than one hidden layer. Note that the non-linear transformation does not have to be the same function across all layers.
+
+$$f(x) = v^T(h(W_2(h(W_1x))))$$
+
+However, more hidden layers come with more non-linear transformation, which will induce the *vanishing gradient* problem. Some solution for this would be:
+
+- *ReLU* function, $h(x) = \max\{0, x\}$, is inspired by the behavior of neurons in the brain, which only activate when the input exceeds a certain threshold. One drawback of the ReLU function is that it can lead to sparsity in the neural activations, which might not always be desirable. An alternative to address this issue is *Leaky ReLU* $h(x) = \max\{-cx,x\}$ where $c\in(0,1)$. This variation allows a small, non-zero gradient when the input is negative, thereby mitigating the problem of inactive neurons.
+
+- Skip connection: ResNet.
+
+Some other tricks to improve performance include:
+
+- Data standardization
+- Initialize weight parameters close to $0$
+- Batch Norm
+- Adam Gradient Descent
