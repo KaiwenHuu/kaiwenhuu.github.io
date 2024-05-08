@@ -75,7 +75,7 @@ The idea behind AD is using chain rule from calculus.
 
 A dynamic programming approach to solving the chain rule is *back propagation*. There are 2 steps: forward path and backward path.
 
-- For each hidden layer, compute all forward paths $h(W_1x), h(W_2h(W_1x)), \dots, v^Th(\dots)$.
+- For each hidden layer, compute all forward paths $W_1x, W_2h(W_1x), \dots, v^Th(\dots)$.
 - Compute the backward paths using chain rule and store all the intermediate gradients starting from $\nabla f_{v}$, then all the way until $\nabla f_{W_1}$.
 
 Backpropagation requires significant storage capacity to hold all intermediate results during the computation process. Additionally, the computational cost of calculating the gradient is equivalent to the cost of computing the function itself.
