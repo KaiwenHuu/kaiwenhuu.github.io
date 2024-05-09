@@ -8,15 +8,21 @@ slug: "mle-map"
 
 Let $D = \{D_i:i=1\dots n\}$ where $D_i = (y_i, X_i)$ and each $D_i$ is iid. Suppose that there is some parameter $\theta \in \Theta$. Then the joint probability density function (or probability mass function) $P(D\mid\theta)$ - or the likelihood $L_n(\theta)$ is
 
-$$L_n(\theta) = \prod_{i=1}^n P(D_i\mid\theta)$$
+$$
+L_n(\theta) = \prod_{i=1}^n P(D_i\mid\theta)
+$$
 
 The joint PDF gives us the likelihood of the iid sample given $\theta$. The negative log likelihood (NLL) then becomes
 
-$$-\log{L_n(\theta)} = - \sum_{i=1}^n \log{P(D_i\mid\theta)}$$
+$$
+-\log{L_n(\theta)} = - \sum_{i=1}^n \log{P(D_i\mid\theta)}
+$$
 
 The goal is to have some estimate of $\theta$ that describes the samples that we observe. Therefore, we want to maximize the likelihood function $L_n$ with respect to $\theta$ - or minimize the NLL. The maximum likelihood estimator (MLE) is defined as
 
-$$\hat{{\theta}}_{MLE} \in \underset{\theta \in \Theta}{\arg \min} \{-\log{L_n(\theta)}\}$$
+$$
+\hat{{\theta}}_{MLE} \in \underset{\theta \in \Theta}{\arg \min} \{-\log{L_n(\theta)}\}
+$$
 
 The MLE estimator $\hat{{\theta}}_{MLE}$ is the value which we are most likely to observe $D$. In general, $\hat{\theta}_{MLE}$ is obtained using some form of numerical optimization over the NLL.
 
@@ -28,9 +34,11 @@ MLE is asymptotically consistent. It is also asymptotically normal and this can 
 
 ### Exponential Family
 
-If each $D_i$ (or $x_i$) follows a distribution of an *Exponential Family*, then $P(D_i\mid\theta)$ follows the form
+If each $D_i$ (or $x_i$) follows a distribution of an *Exponential Family*, then $P(x_i\mid\theta)$ follows the form
 
-$$\frac{h(x_i)\exp(\eta(\theta)^Ts(x_i))}{Z(\theta)}$$
+$$
+\frac{h(x_i)\exp(\eta(\theta)^Ts(x_i))}{Z(\theta)}
+$$
 
 Examples of exponential families include
 
@@ -81,13 +89,19 @@ Minimizing for $-\log{L_n(\beta)}$ is the same as maximizing for $\log{L_n(\beta
 
 MLE estimates $\theta$ by maximizing the likelihood of seeing $D$ conditional on $\theta$, but it's more intuitive to think of learning $\theta$ conditional on observing $D$ - i.e. what we really want to find $\theta$ that has the highest prob ability given the data. From Bayes' rule we have
 
-$$P(\theta\mid D) = \frac{P(D\mid \theta)P(\theta)}{P(D)}$$
+$$
+P(\theta\mid D) = \frac{P(D\mid \theta)P(\theta)}{P(D)}
+$$
 
-$$P(\theta\mid D) \propto P(D\mid \theta)P(\theta)$$
+$$
+P(\theta\mid D) \propto P(D\mid \theta)P(\theta)
+$$
 
 Note that $P(\theta)$ should really be $P(\theta\mid\alpha)$, where $\alpha$ is the parameter for the prior distribution of $\theta$. Following the same way MLE estimated $\theta$ from minimizing the NLL, the maximum a posteriori (MAP) estimator can be obtained from minimizing the NLL where $L_n(\theta) = P(\theta\mid D, \alpha) \propto P(D\mid \theta)P(\theta\mid\alpha)$.
 
-$$\hat{{\theta}}_{MAP} \in \underset{\theta \in \Theta}{\arg \min} \{-\sum_{i=1}^n \log{P{(D_i\mid\theta)}} - \log{P(\theta\mid\alpha)}\}$$
+$$
+\hat{{\theta}}_{MAP} \in \underset{\theta \in \Theta}{\arg \min} \{-\sum_{i=1}^n \log{P{(D_i\mid\theta)}} - \log{P(\theta\mid\alpha)}\}
+$$
 
 The prior distribution acts as a regularizer, ensuring that the estimator does not overfit, particularly when the number of observations is small. Note that as $n\to\infty$, $\hat{{\theta}}_{MAP} \to \hat{{\theta}}_{MLE}$. 
 

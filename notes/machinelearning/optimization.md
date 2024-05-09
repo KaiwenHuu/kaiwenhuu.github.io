@@ -14,7 +14,9 @@ Pseudo Code
 
 To get the gradient at each iteration we have to solve
 
-$$\nabla_\beta f(\beta^t) = X^T(X\beta^t - y)$$
+$$
+\nabla_\beta f(\beta^t) = X^T(X\beta^t - y)
+$$
 
 - Solving $X\beta^t$ is $O(nd)$
 - Solving $X\beta^t - y$ is $O(n)$
@@ -30,17 +32,27 @@ Since cost of gradient descent at each iteration is $O(nd)$, cost of computation
 
 Calculating the gradient using all $n$ samples is the same as calculating the gradient using the average sample.
 
-$$f(\beta) = \sum_{i=1}^n f_i(\beta)$$
+$$
+f(\beta) = \sum_{i=1}^n f_i(\beta)
+$$
 
-$$f(\beta) = \frac{1}{n}\sum_{i=1}^n f_i(\beta)$$
+$$
+f(\beta) = \frac{1}{n}\sum_{i=1}^n f_i(\beta)
+$$
 
-$$E\left(\nabla_\beta f(\beta^t)\right) = \sum_{i=1}^nP(i)\nabla_\beta f(\beta^t) = \sum_{i=1}^n\frac{1}{n}\nabla_\beta f(\beta^t) = \frac{1}{n}\sum_{i=1}^n\nabla_\beta f(\beta^t)  = \nabla_\beta f(\beta^t)$$
+$$
+E\left(\nabla_\beta f(\beta^t)\right) = \sum_{i=1}^nP(i)\nabla_\beta f(\beta^t) = \sum_{i=1}^n\frac{1}{n}\nabla_\beta f(\beta^t) = \frac{1}{n}\sum_{i=1}^n\nabla_\beta f(\beta^t)  = \nabla_\beta f(\beta^t)
+$$
 
 Therefore, if we draw sub-samples randomly at each iteration we should get the same result as gradient descent; the gradient at each iteration will point to the right direction as the actual gradient on average.
 
-$$Var\left(\nabla_\beta f(\beta^t)\right) = E\left[\left(\nabla_\beta f(\beta^t) - E\left(\nabla_\beta f(\beta^t)\right)\right)^2\right]$$
+$$
+Var\left(\nabla_\beta f(\beta^t)\right) = E\left[\left(\nabla_\beta f(\beta^t) - E\left(\nabla_\beta f(\beta^t)\right)\right)^2\right]
+$$
 
-$$Var\left(\nabla_\beta f(\beta^t)\right) = \frac{1}{n}\sum_{i=1}^n\left(\nabla_\beta f(\beta^t) - \nabla_\beta f(\beta^t)\right)^2$$
+$$
+Var\left(\nabla_\beta f(\beta^t)\right) = \frac{1}{n}\sum_{i=1}^n\left(\nabla_\beta f(\beta^t) - \nabla_\beta f(\beta^t)\right)^2
+$$
 
 - If Variance is $0$, every step goes in the right direction.
 - If Variance is small, most steps point in the right direction.
@@ -55,7 +67,9 @@ Let $\alpha^t$ be the step size at $t$th iteration.
 
 Stochastic gradient converges to a stationary point if
 
-$$\frac{\sum_{t=1}^\infty ({\alpha^t})^2}{\sum_{t=1}^\infty \alpha^t}=0$$
+$$
+\frac{\sum_{t=1}^\infty ({\alpha^t})^2}{\sum_{t=1}^\infty \alpha^t}=0
+$$
 
 A solution for decreasing step sizes would be $\alpha^t = O\left(\frac{1}{\sqrt{t}}\right)$. If we don't really care about getting the exact solution we can just have $\alpha^t = \alpha$ for all $t$.
 
