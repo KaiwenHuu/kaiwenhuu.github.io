@@ -49,6 +49,9 @@ const PaperPage = () => {
         <li>
           <Link to="https://arxiv.org/pdf/2404.19756">Kolmogrov-Arnold Network</Link>
         </li>
+        <li>
+          <Link to="https://arxiv.org/pdf/2312.00752">Mamba</Link>
+        </li>
       </ul>
     </Layout>
   )
