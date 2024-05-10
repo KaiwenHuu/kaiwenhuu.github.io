@@ -30,7 +30,7 @@ const MachineLearningPage = ( {data} ) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/machinelearning/"}}
+      filter: {fileAbsolutePath: {regex: "/notes/machinelearning/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {

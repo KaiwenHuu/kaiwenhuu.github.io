@@ -30,7 +30,7 @@ const PyTorchPage = ( {data} ) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/pytorch/"}}
+      filter: {fileAbsolutePath: {regex: "/notes/pytorch/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {

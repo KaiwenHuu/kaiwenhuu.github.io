@@ -30,7 +30,7 @@ const MicroTheoryPage = ( {data} ) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/microtheory/"}}
+      filter: {fileAbsolutePath: {regex: "/notes/microtheory/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {

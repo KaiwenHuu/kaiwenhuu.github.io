@@ -30,7 +30,7 @@ const DistributedSystemsPage = ( {data} ) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/distributedsystems/"}}
+      filter: {fileAbsolutePath: {regex: "/notes/distributedsystems/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {
