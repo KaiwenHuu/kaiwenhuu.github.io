@@ -32,11 +32,13 @@ Click esc then type the following and press enter.
 :wq
 ```
 
-run the following to create an executable file "runme" and run the helloworld program.
+run the following to create an executable file "hello" and run the helloworld program.
 ```
-gcc -o runme hello.c
+gcc -o hello hello.c
+./hello
 ```
 
+To look at the assembly code run
 ```
-./runme
+objdump -d hello
 ```
