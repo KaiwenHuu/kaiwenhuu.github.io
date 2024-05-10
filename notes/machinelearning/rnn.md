@@ -27,7 +27,7 @@ $$
 Consequently, minimizing the NLL through SGD (backpropagation through time) would the method to train the RNN. Note that usual SGD won't work well, so in practice Adam or gradient clipping is used.
 
 $$
-\hat{W},\hat{V},\hat{U} \in \underset{W,V,U}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W, V, U)}}\right\}
+\hat{W},\hat{V},\hat{U} \in \underset{W,V,U}{\arg \min} \{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W, V, U)}}\}
 $$
 
  RNNs can have more than one layer (Deep RNN) and the network can also be bi-directional (Bi-Directional RNN); just like in english sentences it makes sense that the latter part of the sequence dictates what the word in the previous part means. However, with a Bi-Directional RNN the network must be acyclic.
