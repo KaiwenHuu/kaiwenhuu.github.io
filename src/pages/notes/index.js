@@ -29,6 +29,11 @@ const NotesPage = () => {
             PyTorch
           </Link>
         </li>
+        <li>
+          <Link to="/notes/c">
+            C
+          </Link>
+        </li>
       </ul>
     </Layout>
   )
