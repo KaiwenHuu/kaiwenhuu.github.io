@@ -18,7 +18,7 @@ $$
 \hat{y}_t = Vh(Wx_t + Uz_{t-1})
 $$
 
-This is definitely not the best thing to do (because words in a sequence is not independent), but the structure can be thought of as independent soft-max functions over states. Consequently, RNNs can have more than one layer (Deep RNN) and the network can also be bi-directional (Bi-Directional RNN); just like in english sentences it makes sense that the latter part of the sequence dictates what the word in the previous part means. However, with a Bi-Directional RNN the network must be acyclic.
+This is definitely not the best thing to do (because words in a sequence is not independent), but the structure can be thought of as independent soft-max functions over states. 
 
 $$
 P(y_{1:T}\mid x_{1:T}, W, V, U) = \prod_{t=1}^TP(y_t \mid x_t, W, V, U)
@@ -29,6 +29,8 @@ Consequently, minimizing the NLL through SGD (backpropagation through time) woul
 $$
 \hat{W},\hat{V},\hat{U} \in \underset{W,V,U}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W, V, U)}}\right\}
 $$
+
+ RNNs can have more than one layer (Deep RNN) and the network can also be bi-directional (Bi-Directional RNN); just like in english sentences it makes sense that the latter part of the sequence dictates what the word in the previous part means. However, with a Bi-Directional RNN the network must be acyclic.
 
 However, there are major drawbacks with this approach:
 
@@ -47,7 +49,7 @@ $$
 Note that at the encoding stage there is no output matrix $V$. Thus, in a seq2seq, similar to RNN, the training involves minimizing the NLL
 
 $$
-\hat{W}_e, \hat{U}_e, \hat{W}_d,\hat{V}_d,\hat{U}_d \in \underset{W_e,U_e,W_e,V_e,U_e}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W_e,U_e,W_d,V_d,U_d)}}\right\}
+\hat{W}_e, \hat{U}_e, \hat{W}_d,\hat{V}_d,\hat{U}_d \in \underset{W_e,U_e,W_d,V_d,U_d}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W_e,U_e,W_d,V_d,U_d)}}\right\}
 $$
 
 However, there are still lingering issues:
