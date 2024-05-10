@@ -47,7 +47,7 @@ $$
 Note that at the encoding stage there is no output matrix $V$. Thus, in a seq2seq, similar to RNN, the training involves minimizing the NLL
 
 $$
-\hat{W}_e, \hat{U}_e, \hat{W}_d,\hat{V}_d,\hat{U}_d \in \underset{W_e,U_e,W_e,V_e,U_e}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W_e,U_e,W_e,V_e,U_e)}}\right\}
+\hat{W}_e, \hat{U}_e, \hat{W}_d,\hat{V}_d,\hat{U}_d \in \underset{W_e,U_e,W_e,V_e,U_e}{\arg \min} \left\{-\sum_{i=1}^n\sum_{t=1}^{T_i} \log{P{(y_{it}\mid x_{it}, W_e,U_e,W_d,V_d,U_d)}}\right\}
 $$
 
 However, there are still lingering issues:
