@@ -10,7 +10,9 @@ Consider $f(x) = v^Th(Wx)$ where $x\in \mathbb{R}^{d\times 1}, W\in \mathbb{R}^{
 
 We want to have $\hat{y} = f(x)$, so we want an estimate for $v$ and $W$. Just like with least squares, we can minimize the squared loss.
 
-$$\hat{v}, \hat{W} \in \underset{v,W}{\arg\min}\{(y-v^Th(Wx))^T(y-v^Th(Wx))\}$$
+$$
+\hat{v}, \hat{W} \in \underset{v,W}{\arg\min}\{(y-v^Th(Wx))^T(y-v^Th(Wx))\}
+$$
 
 To get the actual estimates we can use SGD.
 
@@ -18,7 +20,24 @@ To get the actual estimates we can use SGD.
 
 If the problem is to classify $y$ as true or false, let $y\in\{-1,1\}$ and minimize the logistic loss with SGD.
 
-$$\hat{v}, \hat{W} \in \underset{v,W}{\arg\min}\{\sum_{i=1}^n\log(1+\exp(-y_iv^Th(Wx_i)))\}$$
+$$
+\hat{v}, \hat{W} \in \underset{v,W}{\arg\min}\left\{\sum_{i=1}^n\log(1+\exp(-y_iv^Th(Wx_i)))\right\}
+$$
+
+### Multi-Label Classification
+
+Instead of a $v$ vector at the very last layer, have a $V$ matrix such that each row $V_c^Th(Wx)$ will give the sigmoid function
+
+$$
+P(y=c\mid x,W,V) = \frac{1}{1+\exp(-V_c^Th(Wx))}
+$$
+
+To train the classification problem minimize the following loss with SGD.
+
+$$
+\hat{V}, \hat{W} \in \underset{V,W}{\arg\min}\left\{\sum_{i=1}^n\sum_{c=1}^k\log(1+\exp(-y_{ic}V_c^Th(Wx_i)))\right\}
+$$
+
 
 ### Tricks
 
@@ -31,7 +50,9 @@ Some tricks to make neural networks perform better:
 
 Deep Learning is simply a neural network with more than one hidden layer. Note that the non-linear transformation does not have to be the same function across all layers.
 
-$$f(x) = v^T(h(W_2(h(W_1x))))$$
+$$
+f(x) = v^T(h(W_2(h(W_1x))))
+$$
 
 However, more hidden layers come with more non-linear transformation, which will induce the *vanishing gradient* problem. Some solution for this would be:
 
