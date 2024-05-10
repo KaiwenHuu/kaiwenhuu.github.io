@@ -1,7 +1,7 @@
 ---
 title: "Operating Systems"
-date: "2021-07-23"
+date: "2024-05-09"
 slug: "operating-systems"
 ---
 
-This will be about OS
+*Operating System* is the special layer of software that provides application software access to hardware resources.

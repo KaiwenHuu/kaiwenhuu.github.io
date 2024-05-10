@@ -1,6 +1,6 @@
 ---
 title: "Network"
-date: "2021-07-23"
+date: "2024-05-09"
 slug: "network"
 ---
 
