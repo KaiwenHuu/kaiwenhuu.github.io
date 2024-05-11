@@ -16,24 +16,24 @@ $$
 We want to minimize the objective function with respect to $\beta$.
 
 $$
-f(\beta) = \frac{1}{2}||y-X\beta||^2 = \frac{1}{2}(y-X\beta)^T(y-X\beta)
+f(\beta) = \frac{1}{2}||y-X\beta||^2 = \frac{1}{2}(y-X\beta)^\top (y-X\beta)
 $$
 
 Minimizing $f(\beta)$ will give us the OLS estimator $\hat{\beta}$. Note that $f(\beta)$ is convex so a global minimum exists. However, we must assume that $X$ is full rank (i.e., no multi-collinearity). Otherwise, we will have a non-unique solution.
 
 $$
-\hat{\beta} = \underset{\beta}{\arg \min} \left\{\frac{1}{2}(y-X\beta)^T(y-X\beta)\right\}
+\hat{\beta} = \underset{\beta}{\arg \min} \left\{\frac{1}{2}(y-X\beta)^\top (y-X\beta)\right\}
 $$
 
 $$
-\hat{\beta} = (X^TX)^{-1}X^Ty
+\hat{\beta} = (X^\top X)^{-1}X^\top y
 $$
 
 If we have the matrix of $X$ and vector $y$, then the OLS estimator is very easy to compute. The overall computation cost is $O(nd^2 + d^3)$ because:
 
-- Solving $X^Ty$ is $O(nd)$.
-- Solving $X^TX$ is $O(nd^2)$.
-- Solving $\hat{\beta} = (X^TX)^{-1}X^Ty$ is $O(d^3)$
+- Solving $X^\top y$ is $O(nd)$.
+- Solving $X^\top X$ is $O(nd^2)$.
+- Solving $\hat{\beta} = (X^\top X)^{-1}X^\top y$ is $O(d^3)$
 
 ### Robust Regression
 
@@ -84,10 +84,10 @@ $$
 $$
 
 $$
-\hat{\beta}_{Ridge} = (X^TX + \alpha I)^{-1}X^Ty
+\hat{\beta}_{Ridge} = (X^\top X + \alpha I)^{-1}X^\top y
 $$
 
-Note that $X^TX + \alpha I$ is always full rank, so ridge regression can be a solution for multicollinear data.
+Note that $X^\top X + \alpha I$ is always full rank, so ridge regression can be a solution for multicollinear data.
 
 The Ridge regression will make the model less sensitive to overfitting. This implies that as $\alpha$ increases the test error decreases.
 
@@ -102,26 +102,26 @@ Let us assume that instead of  $y\in\{0,1\}$ we have  $y\in\{-1,1\}$. We don't w
 What we want is a 0-1 loss; if the prediction is correct we add $0$ penalty but if it's wrong we add $1$ penalty, but this is hard to minimize because it's not convex. Therefore use the Hinge loss for a convex approximation of the 0-1 loss.
 
 $$
-f(\beta) = \sum_{i=1}^n\max\{0, 1-y_i\beta^TX_i\}
+f(\beta) = \sum_{i=1}^n\max\{0, 1-y_i\beta^\top X_i\}
 $$
 
-The idea is that if $y_i > 0$ and $\beta^TX_i > 0$, then we made the right prediction. If $y_i < 0$ and $\beta^TX_i < 0$, we also made the right prediction. Therefore if $y_i\beta^TX_i > 0$, we have the right prediction (i.e., the loss is 0).
+The idea is that if $y_i > 0$ and $\beta^\top X_i > 0$, then we made the right prediction. If $y_i < 0$ and $\beta^\top X_i < 0$, we also made the right prediction. Therefore if $y_i\beta^\top X_i > 0$, we have the right prediction (i.e., the loss is 0).
 
 $$
     error_i= 
     \begin{cases}
-    0 & \text{if } y_i\beta^TX_i > 0 \\
-    -y_i\beta^TX_i & \text{if } y_i\beta^TX_i < 0
+    0 & \text{if } y_i\beta^\top X_i > 0 \\
+    -y_i\beta^\top X_i & \text{if } y_i\beta^\top X_i < 0
     \end{cases}
 $$
 
-However, with the loss function will be $f = \sum_{i=1}^n\max\{0, y_i\beta^TX_i\}$ and the minimizer for this would simply be $\beta = 0$. Therefore, instead of letting $y_i\beta^TX_i > 0$ imply truly classifying $i$ consider $y_i\beta^TX_i \geq 1$. This will be the non-degenerative form and the new error becomes
+However, with the loss function will be $f = \sum_{i=1}^n\max\{0, y_i\beta^\top X_i\}$ and the minimizer for this would simply be $\beta = 0$. Therefore, instead of letting $y_i\beta^\top X_i > 0$ imply truly classifying $i$ consider $y_i\beta^\top X_i \geq 1$. This will be the non-degenerative form and the new error becomes
 
 $$
     error_i= 
     \begin{cases}
-    0 & \text{if } y_i\beta^TX_i - 1 \geq 0 \\
-    1-y_i\beta^TX_i & \text{if } y_i\beta^TX_i - 1 < 0
+    0 & \text{if } y_i\beta^\top X_i - 1 \geq 0 \\
+    1-y_i\beta^\top X_i & \text{if } y_i\beta^\top X_i - 1 < 0
     \end{cases}
 $$
 
@@ -132,49 +132,49 @@ Summing over the new error terms will give if the Hinge loss function. Note that
 SVM is Hinge loss with L2 regularization
 
 $$
-f(\beta) = \sum_{i=1}^n\max\{0, 1-y_i\beta^TX_i\} + \frac{\alpha}{2}||\beta||^2
+f(\beta) = \sum_{i=1}^n\max\{0, 1-y_i\beta^\top X_i\} + \frac{\alpha}{2}||\beta||^2
 $$
 
 ### Logistic Loss
 
-Notice that $\max\{0, -y_i\beta^TX_i\} \approx \log(exp(0)+\exp(-y_i\beta^TX_i)) = \log(1+\exp(-y_i\beta^TX_i))$
+Notice that $\max\{0, -y_i\beta^\top X_i\} \approx \log(exp(0)+\exp(-y_i\beta^\top X_i)) = \log(1+\exp(-y_i\beta^\top X_i))$
 
 $$
-f(\beta) = \sum_{i=1}^n \log(1+\exp(-y_i\beta^TX_i))
+f(\beta) = \sum_{i=1}^n \log(1+\exp(-y_i\beta^\top X_i))
 $$
 
 ### Sigmoid
 
-Let $z_i = \beta^TX_i$. Then to get the probability that $z_i = 1$, we can use the sigmoid function.
+Let $z_i = \beta^\top X_i$. Then to get the probability that $z_i = 1$, we can use the sigmoid function.
 
 $$
 h(z_i) = \frac{1}{1+\exp(-z_i)}
 $$
 
 $$
-P(y_i = 1 \mid \beta, X_i) = \frac{1}{1+\exp(-\beta^TX_i)}
+P(y_i = 1 \mid \beta, X_i) = \frac{1}{1+\exp(-\beta^\top X_i)}
 $$
 
 ### Multi Class Linear Classifiers (Multi-Class SVM)
 
-Now $\beta$ is $d \times k$ where $k$ is the number of classes we want to classify. $\beta_c^T$ is the $c$'th row of the $\beta$ matrix, and $\beta_c^TX_i$ gives the prediction score for class $c$.
+Now $\beta$ is $d \times k$ where $k$ is the number of classes we want to classify. $\beta_c^\top $ is the $c$'th row of the $\beta$ matrix, and $\beta_c^\top X_i$ gives the prediction score for class $c$.
 
 $$
-\hat{y}_i = \underset{c}{\max}\{\beta_c^TX_i\}
+\hat{y}_i = \underset{c}{\max}\{\beta_c^\top X_i\}
 $$
 
-Going back to the hinge-loss, we avoid non trivial solution by aiming for $y_i\beta^TX_i \geq 1$ for the non-degenerative form.
+Going back to the hinge-loss, we avoid non trivial solution by aiming for $y_i\beta^\top X_i \geq 1$ for the non-degenerative form.
 
-Let $y_i$ be the true class for sample $i$. We want $\beta_{y_i}^TX_i > \beta_c^TX_i$ for all $c\neq t$, but we use $\beta_{y_i}^TX_i \geq \beta_c^TX_i + 1$.
+Let $y_i$ be the true class for sample $i$. We want $\beta_{y_i}^\top X_i > \beta_c^\top X_i$ for all $c\neq t$, but we use $\beta_{y_i}^\top X_i \geq \beta_c^\top X_i + 1$.
 
 There are two possible loss that for multi class linear classifiers.
 
 $$
-\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^TX+\beta_c^TX_i\}
+\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^\top X+\beta_c^\top X_i\}
 $$
 
 $$
-\mathop{\max}_{c\neq y_i}\{\max\{0, 1-\beta_{y_i}^TX+\beta_c^TX_i\}\}
+\mathop{\max}_{c\neq y_i}\{\max\{0, 1-\beta_{y_i}^\top X+\beta_c^\top X_i\}\}
 $$
 
 Sum peanlizes for each $c$ that violates the constraint for each sample $i$ and max penalizes for one $c$ that violates the constraint the most.
@@ -182,7 +182,7 @@ Sum peanlizes for each $c$ that violates the constraint for each sample $i$ and 
 To get Multi-Class SVM, add the L2-regularization.
 
 $$
-f(\beta) = \sum_{i=1}^n\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^TX+\beta_c^TX_i\} + \frac{\alpha}{2}\sum_{c=1}^k{||\beta_c||}^2
+f(\beta) = \sum_{i=1}^n\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^\top X+\beta_c^\top X_i\} + \frac{\alpha}{2}\sum_{c=1}^k{||\beta_c||}^2
 $$
 
 We can write $\sum_{c=1}^k{||\beta_c||}^2$ as the Frobenius.
@@ -198,7 +198,7 @@ $$
 So the Multi-Class SVM written using the Frobenius norm becomes
 
 $$
-f(\beta) = \sum_{i=1}^n\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^TX+\beta_c^TX_i\} + \frac{\alpha}{2}||\beta||_F^2
+f(\beta) = \sum_{i=1}^n\sum_{c\neq y_i} \max\{0, 1-\beta_{y_i}^\top X+\beta_c^\top X_i\} + \frac{\alpha}{2}||\beta||_F^2
 $$
 
 ### Multi-Class Logistic Regression and Soft Max Loss
@@ -206,21 +206,21 @@ $$
 The degenerate constraint in the multi-class case and its approximation can be written as
 
 $$
-\beta_{y_i}^TX_i\geq \underset{c}{\max}\{\beta_c^TX_i\}
+\beta_{y_i}^\top X_i\geq \underset{c}{\max}\{\beta_c^\top X_i\}
 $$
 
 $$
-\beta_{y_i}^TX_i\geq \log\left(\sum_{c=1}^k \exp(\beta_c^TX_i)\right)
+\beta_{y_i}^\top X_i\geq \log\left(\sum_{c=1}^k \exp(\beta_c^\top X_i)\right)
 $$
 
 The loss function from multi-class smoothed approximation degenerate max constraint is the soft max loss. When $k = 2$, then it is equivalent to the binary logistic loss.
 
 $$
-f(\beta) = \sum_{i=1}^n\left[-\beta_{y_i}^TX_i + \log\left(\sum_{c=1}^k \exp(\beta_c^TX_i)\right)\right] + \frac{\alpha}{2}\sum_{c=1}^k{||\beta_c||}^2
+f(\beta) = \sum_{i=1}^n\left[-\beta_{y_i}^\top X_i + \log\left(\sum_{c=1}^k \exp(\beta_c^\top X_i)\right)\right] + \frac{\alpha}{2}\sum_{c=1}^k{||\beta_c||}^2
 $$
 
 Also, the soft max function gives us
 
 $$
-P(y_i = c \mid \beta, X_i) = \frac{\exp(\beta_{c}^TX_i)}{\sum_{c'=1}^k \exp(\beta_{c'}^TX_i)}
+P(y_i = c \mid \beta, X_i) = \frac{\exp(\beta_{c}^\top X_i)}{\sum_{c'=1}^k \exp(\beta_{c'}^\top X_i)}
 $$

@@ -15,12 +15,12 @@ Pseudo Code
 To get the gradient at each iteration we have to solve
 
 $$
-\nabla_\beta f(\beta^t) = X^T(X\beta^t - y)
+\nabla_\beta f(\beta^t) = X^\top (X\beta^t - y)
 $$
 
 - Solving $X\beta^t$ is $O(nd)$
 - Solving $X\beta^t - y$ is $O(n)$
-- Solving $X^T(X\beta^t - y)$ is $O(nd)$
+- Solving $X^\top (X\beta^t - y)$ is $O(nd)$
 
 Therefore, the cost of gradient descent at each iteration is $O(nd)$. So if we have $t$ total iterations, the total cost of gradient descent is $O(ndt)$.
 
@@ -89,7 +89,7 @@ The idea behind AD is using chain rule from calculus.
 
 A dynamic programming approach to solving the chain rule is *back propagation*. There are 2 steps: forward path and backward path.
 
-- For each hidden layer, compute all forward paths $W_1x, W_2h(W_1x), \dots, v^Th(\dots)$.
+- For each hidden layer, compute all forward paths $W_1x, W_2h(W_1x), \dots, v^\top h(\dots)$.
 - Compute the backward paths using chain rule and store all the intermediate gradients starting from $\nabla f_{v}$, then all the way until $\nabla f_{W_1}$.
 
 Backpropagation requires significant storage capacity to hold all intermediate results during the computation process. Additionally, the computational cost of calculating the gradient is equivalent to the cost of computing the function itself.

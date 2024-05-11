@@ -37,7 +37,7 @@ MLE is asymptotically consistent. It is also asymptotically normal and this can 
 If each $D_i$ (or $x_i$) follows a distribution of an *Exponential Family*, then $P(x_i\mid\theta)$ follows the form
 
 $$
-\frac{h(x_i)\exp(\eta(\theta)^Ts(x_i))}{Z(\theta)}
+\frac{h(x_i)\exp(\eta(\theta)^\top s(x_i))}{Z(\theta)}
 $$
 
 Examples of exponential families include
@@ -45,14 +45,14 @@ Examples of exponential families include
 - Bernoulli Distribution: $P(x_i\mid\theta) = \theta^{1(x_i = 1)}(1-\theta)^{1(x_i = 0)}$
 - Categorical Distribution: $P(x_i\mid \boldsymbol{\theta}) = \prod_{c=1}^k\theta_c^{1(x_i = c)}$
 - Normal Distribution: $P(x_i\mid\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right)$
-- Multivariate Normal Distribution: $P(\boldsymbol{x}_i\mid \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{\frac{d}{2}}\det(\boldsymbol{\Sigma})^{\frac{d}{2}}}\exp\left(-\frac{1}{2}(\boldsymbol{x}_i-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}_i-\boldsymbol{\mu})\right)$
+- Multivariate Normal Distribution: $P(\boldsymbol{x}_i\mid \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{\frac{d}{2}}\det(\boldsymbol{\Sigma})^{\frac{d}{2}}}\exp\left(-\frac{1}{2}(\boldsymbol{x}_i-\boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\boldsymbol{x}_i-\boldsymbol{\mu})\right)$
 - Poisson Distribution: $P(x_i \mid \lambda) = \frac{1}{x_i!}\lambda^{x_i}\exp(-\lambda)$
 
 Convenient thing about distributions that follow the exponential family is that the MLE can be obtained from moment matching - i.e., the estimator is just the sample mean (and sample covariance). Thus, there is no need for any numerical optimization method such as grid search or gradient descent.
 
 <!-- ### Gaussian MLE
 
-Assume $y_i = \beta^T X_i + U_i$ where $U_i$ follows a standard normal.
+Assume $y_i = \beta^\top  X_i + U_i$ where $U_i$ follows a standard normal.
 
 $$\mathbb{P}(U_i) = \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{U_i^2}{2}\right)}$$
 
@@ -62,9 +62,9 @@ $$\log{L_n(\beta)} = \sum_{i=1}^n\left[\log{\frac{1}{\sqrt{2\pi}}} + \log{\exp{\
 
 $$\log{L_n(\beta)} = \sum_{i=1}^n\left(\log{\frac{1}{\sqrt{2\pi}}} - \frac{U_i^2}{2}\right)$$
 
-$$\log{L_n(\beta)} = \sum_{i=1}^n\left(\log{\frac{1}{\sqrt{2\pi}}} - \frac{(y_i - \beta^T X_i)^2}{2}\right)$$
+$$\log{L_n(\beta)} = \sum_{i=1}^n\left(\log{\frac{1}{\sqrt{2\pi}}} - \frac{(y_i - \beta^\top  X_i)^2}{2}\right)$$
 
-$$\log{L_n(\beta)} = n\log\left({\frac{1}{\sqrt{2\pi}}}\right) - \frac{1}{2}\sum_{i=1}^n(y_i - \beta^T X_i)^2$$
+$$\log{L_n(\beta)} = n\log\left({\frac{1}{\sqrt{2\pi}}}\right) - \frac{1}{2}\sum_{i=1}^n(y_i - \beta^\top  X_i)^2$$
 
 $n\log{\frac{1}{\sqrt{2\pi}}}$ is just some constant independent of $\beta$. Let us denote this constant as $c$. Then finding MLE is simply solving for the least squares.
 
@@ -78,7 +78,7 @@ Minimizing for $-\log{L_n(\beta)}$ is the same as maximizing for $\log{L_n(\beta
 
 - Least Squares. MLE under gaussian likelihood $$\mathbb{P}(y|X,\beta) = \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{U_i^2}{2}\right)}$$
 - Robust Regression. MLE under laplace likelihood $$\mathbb{P}(y|X,\beta) = \frac{1}{2}\exp{\left(-|U_i|\right)}$$
-- Logistic Regression. MLE under sigmoid function $$\mathbb{P}(y|X,\beta) = \frac{1}{1+\exp{(-y_i\beta^T X_i)}}$$
+- Logistic Regression. MLE under sigmoid function $$\mathbb{P}(y|X,\beta) = \frac{1}{1+\exp{(-y_i\beta^\top  X_i)}}$$
 
 ### Generative Probabilistic Models
 
