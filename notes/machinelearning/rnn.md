@@ -58,7 +58,7 @@ However, there are still lingering issues:
 - Memory issue
 - Vanishing or exploding gradients
 
-Note that seq2seq can be adopted to be *multi-modal*. That is, the model can take a video as an input and output a text (e.g., caption).
+Note that seq2seq can be adopted to be *multi-modal*. That is, the model can take a video as an input and output a text (e.g., caption), vice versa, or any other input-output pair where the datastructures are different.
 
 ### LSTM
 

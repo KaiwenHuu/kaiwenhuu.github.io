@@ -1,7 +1,11 @@
 ---
-title: "Variational Auto Encoder"
-date: "2021-07-23"
-slug: "variational-auto-encoder"
+title: "Variational Autoencoder"
+date: "2024-05-11"
+slug: "variational-autoencoder"
 ---
 
-VAEs
+## Variational Autoencoder (VAE)
+
+### KL Divergence
+
+### ELBO

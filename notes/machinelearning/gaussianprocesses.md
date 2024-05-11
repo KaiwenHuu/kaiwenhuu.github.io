@@ -1,7 +1,15 @@
 ---
-title: "Gaussian Processes"
-date: "2021-07-23"
-slug: "gaussian-processes"
+title: "Bayesian Inference"
+date: "2024-05-11"
+slug: "bayeseian-inference"
 ---
 
-gaussian processes
+## Bayesian Inference
+
+### Posterior Predictive
+
+### Bayesian Learning
+
+### Gaussian Process
+
+### Empirical Bayes
