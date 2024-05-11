@@ -18,7 +18,7 @@ In a basic attention framework the goal is to learn $K$ and $Q$.
 
 ### Transformer
 
-In a *Transformer network*, the architecture completely discards the recurrent components. Instead, the encoder features self-attention layers, where each input vector at the encoder stage computes an attention score relative to all other encoder inputs. This is based on the premise that every word in a sentence may depend on all other words in the sentence. Notably, in a basic attention framework, the primary goal is to learn the matrices $K$ and $Q$, but a Transformer also learns a $V$ matrix where $Vz$ is the value vector.
+In a *Transformer Network*, the architecture completely discards the recurrent components. Instead, the encoder features self-attention layers, where each input vector at the encoder stage computes an attention score relative to all other encoder inputs. This is based on the premise that every word in a sentence may depend on all other words in the sentence. Notably, in a basic attention framework, the primary goal is to learn the matrices $K$ and $Q$, but a Transformer also learns a $V$ matrix where $Vz$ is the value vector.
 
 1. Compute Key Vectors: For each of the encoder states compute the key vectors $Kz_t$
 2. Compute Attention Scores: For each of the encoder states with the respective decoding state. Usually the score is calculated as $\frac{Kz_t^TQz_{t'}}{d}$, which represents the ratio of the Euclidean distance between the key vector and the query vector to the dimension $d$ of the source hidden state $z$.
