@@ -25,6 +25,11 @@ const NotesPage = () => {
           </Link>
         </li>
         <li>
+          <Link to="/notes/bit">
+            Bit
+          </Link>
+        </li>
+        <li>
           <Link to="/notes/pytorch">
             PyTorch
           </Link>
