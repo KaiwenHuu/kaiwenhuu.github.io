@@ -17,7 +17,7 @@ However, in a dynamic real-world environment, it is often unrealistic to assume 
 Instead of committing to one parameter to compute the likelihood of an unobserved data, the *posterior predictve* computes the weighted average of the likelihoods across all possible $\theta$, given its parameter $\alpha$.
 
 $$
-P(\tilde{y}\mid\tilde{X}, \boldsymbol{y}, \boldsymbol{X}, \alpha)=\int \frac{P(\tilde{y}\mid\theta, \tilde{X})P(\theta\mid \boldsymbol{y}, \boldsymbol{X}, \alpha)}{P(\theta\mid\tilde{X}, \boldsymbol{y}, \boldsymbol{X}, \alpha)}d\theta
+P(\tilde{y}\mid\tilde{X}, \boldsymbol{y}, \boldsymbol{X}, \alpha)=\int P(\tilde{y}\mid\theta, \tilde{X})P(\theta\mid \boldsymbol{y}, \boldsymbol{X}, \alpha)d\theta
 $$
 
 ### Bayesian Linear Regression
