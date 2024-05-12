@@ -34,13 +34,11 @@ p = &c;
 
 The pointer holds the value of an address of some object. If pointer equals `NULL` or `0`, then the pointer is not pointing to anything. Each pointer is created using the `&` operator, which can be used on any *lvalue* (anything to the left of the `=` sign). Pointers can also be dereferenced using the `*` operator.
 
-#### Array and Pointer
+#### Array and Pointer and Casting
 
-Array referencing (e.g., `a[3]`) has the exact same effect as pointer dereferencing (e.g., `*a`).
+Array referencing (e.g., `a[3]`) has the exact same effect as pointer dereferencing (e.g., `*(a+3)`). Both array referencing and pointer arithmetic require scaling the offsets by the object size.
 
-#### Casting
-
-`(int *) p + 7` shifts the address by 28 bytes (because `int` has 4 bytes), but `(int *) (p + 7)` will shift the address by 7 bytes. Note that `(char *) p + 1` is just shifting the address by 1 byte. In general if `p` is a pointer, then `p+i` means the resulting address is $p+Li$ where $L$ is the size of the data type associated with the pointer.
+`(int *) p+7` shifts the address by 28 bytes (because `int` has 4 bytes), but `(int *) (p+7)` will shift the address by 7 bytes. Note that `(char *) p+1` is just shifting the address by 1 byte. In general if `p` is a pointer, then `p+i` (no casting) means the resulting address is $p+Li$ where $L$ is the size of the data type associated with the pointer.
 
 #### Function Pointers
 
