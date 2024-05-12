@@ -100,7 +100,7 @@ $$
 Note that $P(\theta)$ should really be $P(\theta\mid\alpha)$, where $\alpha$ is the parameter for the prior distribution of $\theta$. Following the same way MLE estimated $\theta$ from minimizing the NLL, the maximum a posteriori (MAP) estimator can be obtained from minimizing the NLL where $L_n(\theta) = P(\theta\mid D, \alpha) \propto P(D\mid \theta)P(\theta\mid\alpha)$.
 
 $$
-\hat{{\theta}}_{MAP} \in \underset{\theta \in \Theta}{\arg \min} \{-\sum_{i=1}^n \log{P{(D_i\mid\theta)}} - \log{P(\theta\mid\alpha)}\}
+\hat{{\theta}}_{MAP} \in \underset{\theta \in \Theta}{\arg \min} \left\{-\sum_{i=1}^n \log{P{(D_i\mid\theta)}} - \log{P(\theta\mid\alpha)}\right\}
 $$
 
 The prior distribution acts as a regularizer, ensuring that the estimator does not overfit, particularly when the number of observations is small. Note that as $n\to\infty$, $\hat{{\theta}}_{MAP} \to \hat{{\theta}}_{MLE}$. 
