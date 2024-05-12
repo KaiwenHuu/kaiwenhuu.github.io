@@ -1,6 +1,6 @@
 ---
 title: "Variational Autoencoder"
-date: "2024-05-11"
+date: "2024-05-12"
 slug: "variational-autoencoder"
 ---
 
