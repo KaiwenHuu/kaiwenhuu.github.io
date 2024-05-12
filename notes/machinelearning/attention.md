@@ -35,4 +35,4 @@ This process can be repeated multiple times, allowing the self-attention layers 
 - Positional Encoding
 - Residual Connections
 - Layer Normalization
-- Masked Attention: Use a Lower Triangular Matrix to "mask" to prevent positions from attending to subsequent positions.
+- Masked Attention: Use a Lower Triangular Matrix to "mask" - i.e., prevent positions from attending to subsequent positions.
