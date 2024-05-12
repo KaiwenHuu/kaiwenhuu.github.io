@@ -68,8 +68,10 @@ $$
 The kernel $K$ determines the covariance over the functions, where $K(X, X') = cov(X, X')$. A common choice is the RBF kernel.
 
 $$
-K(X,X') = \alpha^2\exp\left(\frac{-||x-x'||^2}{2l^2}\right)
+K(X,X') = \alpha^2\exp\left(\frac{-||X-X'||^2}{2l^2}\right)
 $$
+
+<a href="https://www.cs.cmu.edu/~epxing/Class/10708-17/notes-17/10708-scribe-lecture24.pdf">ref</a>
 
 ### Empirical Bayes
 
