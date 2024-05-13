@@ -90,11 +90,10 @@ Minimizing for $-\log{L_n(\beta)}$ is the same as maximizing for $\log{L_n(\beta
 MLE estimates $\theta$ by maximizing the likelihood of seeing $D$ conditional on $\theta$, but it's more intuitive to think of learning $\theta$ conditional on observing $D$ - i.e. what we really want to find $\theta$ that has the highest prob ability given the data. From Bayes' rule we have
 
 $$
-P(\theta\mid D) = \frac{P(D\mid \theta)P(\theta)}{P(D)}
-$$
-
-$$
-P(\theta\mid D) \propto P(D\mid \theta)P(\theta)
+\begin{align*}
+P(\theta\mid D) & = \frac{P(D\mid \theta)P(\theta)}{P(D)}
+\\& \propto P(D\mid \theta)P(\theta)
+\end{align*}
 $$
 
 Note that $P(\theta)$ should really be $P(\theta\mid\alpha)$, where $\alpha$ is the parameter for the prior distribution of $\theta$. Following the same way MLE estimated $\theta$ from minimizing the NLL, the maximum a posteriori (MAP) estimator can be obtained from minimizing the NLL where $L_n(\theta) = P(\theta\mid D, \alpha) \propto P(D\mid \theta)P(\theta\mid\alpha)$.

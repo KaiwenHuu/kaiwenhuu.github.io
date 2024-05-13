@@ -33,25 +33,28 @@ Since cost of gradient descent at each iteration is $O(nd)$, cost of computation
 Calculating the gradient using all $n$ samples is the same as calculating the gradient using the average sample.
 
 $$
-f(\beta) = \sum_{i=1}^n f_i(\beta)
+\begin{align*}
+f(\beta) & = \sum_{i=1}^n f_i(\beta)
+\\& = \frac{1}{n}\sum_{i=1}^n f_i(\beta)
+\end{align*}
 $$
 
 $$
-f(\beta) = \frac{1}{n}\sum_{i=1}^n f_i(\beta)
-$$
-
-$$
-E\left(\nabla_\beta f(\beta^t)\right) = \sum_{i=1}^nP(i)\nabla_\beta f(\beta^t) = \sum_{i=1}^n\frac{1}{n}\nabla_\beta f(\beta^t) = \frac{1}{n}\sum_{i=1}^n\nabla_\beta f(\beta^t)  = \nabla_\beta f(\beta^t)
+\begin{align*}
+E\left(\nabla_\beta f(\beta^t)\right) & = \sum_{i=1}^nP(i)\nabla_\beta f(\beta^t) 
+\\& = \sum_{i=1}^n\frac{1}{n}\nabla_\beta f(\beta^t) 
+\\& = \frac{1}{n}\sum_{i=1}^n\nabla_\beta f(\beta^t) 
+\\& = \nabla_\beta f(\beta^t)
+\end{align*}
 $$
 
 Therefore, if we draw sub-samples randomly at each iteration we should get the same result as gradient descent; the gradient at each iteration will point to the right direction as the actual gradient on average.
 
 $$
-Var\left(\nabla_\beta f(\beta^t)\right) = E\left[\left(\nabla_\beta f(\beta^t) - E\left(\nabla_\beta f(\beta^t)\right)\right)^2\right]
-$$
-
-$$
-Var\left(\nabla_\beta f(\beta^t)\right) = \frac{1}{n}\sum_{i=1}^n\left(\nabla_\beta f(\beta^t) - \nabla_\beta f(\beta^t)\right)^2
+\begin{align*}
+Var\left(\nabla_\beta f(\beta^t)\right) & = E\left[\left(\nabla_\beta f(\beta^t) - E\left(\nabla_\beta f(\beta^t)\right)\right)^2\right]
+\\& = \frac{1}{n}\sum_{i=1}^n\left(\nabla_\beta f(\beta^t) - \nabla_\beta f(\beta^t)\right)^2
+\end{align*}
 $$
 
 - If Variance is $0$, every step goes in the right direction.

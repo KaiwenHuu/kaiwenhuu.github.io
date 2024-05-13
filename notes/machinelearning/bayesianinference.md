@@ -25,17 +25,17 @@ $$
 Consider the following linear framework: $y = X\theta + U$
 
 $$
-U\mid X \sim N(0, \sigma^2), \theta \sim N(0, \lambda^{-1}I)
+U\mid X \sim N(0, \sigma^2), \theta \sim N(0, \lambda^{-1}\boldsymbol{I})
 $$
 
 Note that $U\mid X \sim N(0, \sigma^2)$ implies $y\mid X \sim(X\theta, \sigma^2)$. Then, the posterior has the form
 
 $$
-\theta \sim N\left(\theta_{MAP}, \left(\frac{1}{\sigma^2}X^\top X+\lambda I\right)^{-1}\right), \theta_{MAP} = \left(X^\top X+\frac{\lambda}{\sigma^2}I\right)^{-1}X^\top y
+\theta \sim N\left(\theta_{MAP}, \left(\frac{1}{\sigma^2}X^\top X+\lambda \boldsymbol{I}\right)^{-1}\right), \theta_{MAP} = \left(X^\top X+\frac{\lambda}{\sigma^2}\boldsymbol{I}\right)^{-1}X^\top y
 $$
 
 $$
-\tilde{y} \mid \boldsymbol{X}, \boldsymbol{y}, \tilde{X} \sim N\left(\theta_{MAP}^\top\tilde{X}, \sigma^2+\tilde{X}^\top\left(\frac{1}{\sigma^2}X^\top X+\lambda I\right)\tilde{X}\right)
+\tilde{y} \mid \boldsymbol{X}, \boldsymbol{y}, \tilde{X} \sim N\left(\theta_{MAP}^\top\tilde{X}, \sigma^2+\tilde{X}^\top\left(\frac{1}{\sigma^2}X^\top X+\lambda \boldsymbol{I}\right)\tilde{X}\right)
 $$
 
 ### Gaussian Process
@@ -49,18 +49,14 @@ $$
 
 #### Linear Basis Function
 
-For example, $f$ can depend on the parameter $\theta$ where $\theta \sim N(0, \lambda^{-1}I)$. Consider the case $f(X) = \theta^\top \phi(X)$. Then, $m(X)$ is as follows
+For example, $f$ can depend on the parameter $\theta$ where $\theta \sim N(0, \lambda^{-1}\boldsymbol{I})$. Consider the case $f(X) = \theta^\top \phi(X)$. Then, $m(X)$ is as follows
 
 $$
-m(X) = E(\theta^\top \phi(X))
-$$
-
-$$
-m(X) = E(\theta^\top)\phi(X)
-$$
-
-$$
-m(X) = 0
+\begin{align*}
+m(X) & = E(\theta^\top \phi(X))
+\\& = E(\theta^\top)\phi(X)
+\\& = 0
+\end{align*}
 $$
 
 #### Kernel

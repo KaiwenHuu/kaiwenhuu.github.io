@@ -22,11 +22,10 @@ $$
 Minimizing $f(\beta)$ will give us the OLS estimator $\hat{\beta}$. Note that $f(\beta)$ is convex so a global minimum exists. However, we must assume that $X$ is full rank (i.e., no multi-collinearity). Otherwise, we will have a non-unique solution.
 
 $$
-\hat{\beta} = \underset{\beta}{\arg \min} \left\{\frac{1}{2}(y-X\beta)^\top (y-X\beta)\right\}
-$$
-
-$$
-\hat{\beta} = (X^\top X)^{-1}X^\top y
+\begin{align*}
+\hat{\beta} & \in \underset{\beta}{\arg \min} \left\{\frac{1}{2}(y-X\beta)^\top (y-X\beta)\right\}
+\\& = (X^\top X)^{-1}X^\top y
+\end{align*}
 $$
 
 If we have the matrix of $X$ and vector $y$, then the OLS estimator is very easy to compute. The overall computation cost is $O(nd^2 + d^3)$ because:
@@ -80,11 +79,10 @@ $$
 Instead of the L1 norm like we used in lasso, we use the L2 norm of the $\beta$ for the penalizing term.
 
 $$
-\hat{\beta}_{Ridge} = \underset{\beta}{\arg \min}\left\{\frac{1}{2}||y-X\beta||^2 + \frac{\alpha}{2}||\beta||^2\right\}
-$$
-
-$$
-\hat{\beta}_{Ridge} = (X^\top X + \alpha I)^{-1}X^\top y
+\begin{align*}
+\hat{\beta}_{Ridge} & \in \underset{\beta}{\arg \min}\left\{\frac{1}{2}||y-X\beta||^2 + \frac{\alpha}{2}||\beta||^2\right\}
+\\& = (X^\top X + \alpha I)^{-1}X^\top y
+\end{align*}
 $$
 
 Note that $X^\top X + \alpha I$ is always full rank, so ridge regression can be a solution for multicollinear data.
