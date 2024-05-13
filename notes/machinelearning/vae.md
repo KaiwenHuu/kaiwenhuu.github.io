@@ -15,7 +15,7 @@ Ideally, want to choose $\theta$ (the decoder) that maximizes the likelihood for
 Solution: Use *recognition network*
 
 $$
-q_\theta(z\mid x) \approx p_\theta(z\mid x) = \frac{p_\theta(x\mid z)p_\theta(z)}{p_\theta(x)}
+q_\phi(z\mid x) \approx p_\theta(z\mid x) = \frac{p_\theta(x\mid z)p_\theta(z)}{p_\theta(x)}
 $$
 
 ### ELBO
