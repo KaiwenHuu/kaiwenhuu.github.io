@@ -94,4 +94,4 @@ struct node {
 
 ### Data Alignment
 
-Linux follows a 2-byte alignment for 2-byte data types and a 4-byte alignment for any larger data types. In Windows, any primitive object of K bytes, for K = 2, 4, or 8, must have an address that is a multiple of K.
+Linux follows a 2-byte alignment for 2-byte data types and a 4-byte alignment for any larger data types. In Windows, any primitive object of K bytes, for K = 2, 4, or 8, must have an address that is a multiple of K. The alignment restrictions simplify the design of the hardware forming the interface between the processor and the memory system
