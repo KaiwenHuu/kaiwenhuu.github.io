@@ -26,6 +26,14 @@ $$
 
 The MLE estimator $\hat{{\theta}}_{MLE}$ is the value which we are most likely to observe $D$. In general, $\hat{\theta}_{MLE}$ is obtained using some form of numerical optimization over the NLL.
 
+### Hessian and the Covariance Matrix of MLE
+
+The covariance matrix of the parmaeter estimates $\hat{\theta}_{MLE}$ is the negative inverse Hessian of the log likelihood function (or the information matrix, which is the negative of the expected value of the Hessian matrix).
+
+$$
+Cov(\hat{\theta}_{MLE}) = -\left[\frac{\partial^2\log L_n(\hat{\theta}_{MLE})}{\partial \theta \partial \theta^{\top}}\right]^{-1}
+$$
+
 ### Asymptotics of MLE
 
 $\underset{n\to\infty}{\lim}{\hat{{\theta}}_{MLE}} = \theta$
