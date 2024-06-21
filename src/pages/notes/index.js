@@ -39,6 +39,11 @@ const NotesPage = () => {
             C
           </Link>
         </li>
+        <li>
+          <Link to="/notes/datastructure">
+            Data Structure
+          </Link>
+        </li>
       </ul>
     </Layout>
   )

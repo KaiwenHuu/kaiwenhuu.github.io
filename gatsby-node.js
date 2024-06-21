@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const dirName = path.basename(path.dirname(node.fileAbsolutePath));
-    const allowedDirs = ["distributedsystems", "machinelearning", "microtheory", "pytorch", "bit", "c"];
+    const allowedDirs = ["distributedsystems", "machinelearning", "microtheory", "pytorch", "bit", "c", "datastructure"];
     if (allowedDirs.includes(dirName)) {
       createPage({
         path: `notes/${dirName}/${node.frontmatter.slug}`,

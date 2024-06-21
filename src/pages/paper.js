@@ -52,6 +52,9 @@ const PaperPage = () => {
         <li>
           <Link to="https://arxiv.org/pdf/2312.00752">Mamba</Link>
         </li>
+        <li>
+          <Link to="https://www.wpeebles.com/DiT">DIT</Link>
+        </li>
       </ul>
     </Layout>
   )
