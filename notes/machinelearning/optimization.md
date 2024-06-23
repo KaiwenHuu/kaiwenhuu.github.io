@@ -96,3 +96,18 @@ A dynamic programming approach to solving the chain rule is *back propagation*. 
 - Compute the backward paths using chain rule and store all the intermediate gradients starting from $\nabla f_{v}$, then all the way until $\nabla f_{W_1}$.
 
 Backpropagation requires significant storage capacity to hold all intermediate results during the computation process. Additionally, the computational cost of calculating the gradient is equivalent to the cost of computing the function itself.
+
+### Evolutionary Strategy
+
+CMA-ES algorithm works well for minimizing the following type of functions:
+- non-linear, non-quadratic, non-convex
+- non-smooth, discontinuous, multi-modal
+- high dimensional
+
+#### Stochastic Search
+
+Idea of evoluationary strategy algorithms for minimizing function $f: R^n \to R$. Initial parameter $\theta$
+
+1. Draw $\lambda$ samples from distribution $P(x\mid \theta)$: $x_1, \dots, x_\lambda$
+2. Evaluate each $\lambda$ samples on $f$.
+3. Update the parameter $\theta$ depending on $F_\theta(\theta, x_1,\dots, x_\lambda, f(x_1),\dots,f(x_\lambda))$
