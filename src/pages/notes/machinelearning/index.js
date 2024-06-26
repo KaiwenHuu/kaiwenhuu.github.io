@@ -8,7 +8,7 @@ const MachineLearningPage = ( {data} ) => {
   return (
     <Layout pageTitle="Machine Learning">
       <p>
-        Machine Learning is a broad and dynamic field that spans from foundational statistical methods to advanced areas like Deep Learning and Generative AI. Given the expansive scope of this discipline, organizing thoughts and insights can be challenging. To bring clarity and structure to this complex subject, I have categorized my knowledge into distinct, somewhat orthogonal areas. If it gets overwhelming, I might split some of these into its own sections.
+        Some notes on anything related to machine learning, from econometrics, deep learning to reinforcement learning.
       </p>
       <ul>
       {

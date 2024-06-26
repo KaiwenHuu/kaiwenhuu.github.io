@@ -8,7 +8,7 @@ const DistributedSystemsPage = ( {data} ) => {
   return (
     <Layout pageTitle="Distributed Systems">
       <p>
-        In the realm of software development, mastering the art of scaling a platform is often more critical than proficiency in coding itself. This crucial skill involves comprehending the mechanisms of data storage and access across millions of platforms in real time. Coming from a non-traditional computer science background, I primarily gained this invaluable knowledge through hands-on experience in the field. I've jotted down some notes on everything related to this that is important to know - maybe I will have Network and OS as their own categories.
+        Coming from a non-traditional computer science background, I primarily gained this knowledge through hands-on experience in the field. I've jotted down some notes on everything related to this that is important to know - maybe I will have Network and OS as their own categories.
       </p>
       <ul>
       {

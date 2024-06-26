@@ -8,7 +8,7 @@ const MicroTheoryPage = ( {data} ) => {
   return (
     <Layout pageTitle="Micro Theory">
       <p>
-        At first glance, the connection between microeconomics and engineering may not be immediately apparent to a casual observer. Yet, as computational capabilities have dramatically improved, the ability to apply and validate microeconomic theories in practical scenarios has grown significantly. This intersection is particularly fascinating when viewed through the lens of data science, where economic principles can be rigorously tested and applied. Here are some topics that I find particularly interesting.
+        Here are some topics in microeconomics that I find particularly interesting.
       </p>
       <ul>
       {
