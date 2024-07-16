@@ -83,3 +83,19 @@ C_b(v) = \sum_{s\neq t, s\neq v, t \neq v} \frac{\sigma st(v)}{\sigma st}
 $$
 
 where $\sigma st$ is the number of shortest paths from $s$ to $t$ and $\sigma st(v)$ is the number of shortest pahts from $s$ to $t$ passing through $v$.
+
+#### Graph Spectra
+
+Graph *Laplacian*, $L$, is constructed by subtracting adjacency matrix from the degree matrix $D$, where $D$ is just a diagonal matrix with each entry representing the degree of the node.
+
+$$
+L = D - A
+$$
+
+The smallest eigen value of $L$ is $0$, and the corresponding eigenvector is the constant $1$. Also, $L$ has $n$ non-negative, real-valued eigenvalues.
+
+Two graphs are *conspectral* if their adjacency matrices have equal multisets of eigenvalues. Conspectral graphs don't need to be isomorphic, but isomorphic graphs are always conspectral.
+
+##### Network Motifs
+
+Networks contain several small topological patterns that are frequent. Different networks tend to have different sets of such frequent local structures, and these patterns are referred to *network motifs* - i.e., the simple building blocks of networks.
