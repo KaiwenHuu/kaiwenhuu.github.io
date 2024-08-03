@@ -4,11 +4,11 @@ import Layout from '../../../components/layout'
 import { Link, graphql } from 'gatsby'
 
 // Step 2: Define your component
-const DataStructurePage = ( {data} ) => {
+const GraphPage = ( {data} ) => {
   return (
-    <Layout pageTitle="DataStructure">
+    <Layout pageTitle="Graph">
       <p>
-        Some notes on Data Structure
+        Some notes on Graphs
       </p>
       <ul>
       {
@@ -30,7 +30,7 @@ const DataStructurePage = ( {data} ) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/notes/datastructure/"}}
+      filter: {fileAbsolutePath: {regex: "/notes/graph/"}}
       sort: { frontmatter: { date: ASC }}
     ) {
       nodes {
@@ -47,4 +47,4 @@ export const query = graphql`
 `
 
 // Step 3: Export your component
-export default DataStructurePage
+export default GraphPage

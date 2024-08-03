@@ -40,8 +40,8 @@ const NotesPage = () => {
           </Link>
         </li>
         <li>
-          <Link to="/notes/datastructure">
-            Data Structure
+          <Link to="/notes/graph">
+            Graph
           </Link>
         </li>
       </ul>
