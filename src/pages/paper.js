@@ -59,7 +59,7 @@ const PaperPage = () => {
           <Link to="https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/">Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations</Link>
         </li>
         <li>
-          <Link to="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2">https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2</Link>
+          <Link to="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2">Mixed Negative Sampling for Learning Two-tower Neural Networks in Recommendations</Link>
         </li>
       </ul>
     </Layout>
