@@ -44,6 +44,11 @@ const NotesPage = () => {
             Graph
           </Link>
         </li>
+        <li>
+          <Link to="/notes/microservices">
+            Microservices
+          </Link>
+        </li>
       </ul>
     </Layout>
   )
