@@ -7,8 +7,9 @@ const PaperPage = () => {
   return (
     <Layout pageTitle="Papers">
       <p>
-        Here are some interesting papers I have read or plan to read.
+        Papers I have read or plan to read.
       </p>
+      <h2>Economics</h2>
       <ul>
         <li>
           <Link to="https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/a/3019/files/2023/09/Master.pdf">Spatial Learning and Path Dependence in Consumer Search</Link>
@@ -25,6 +26,24 @@ const PaperPage = () => {
         <li>
           <Link to="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3195812">Autonomous Algorithmic Collusion: Q-Learning Under Sequential Pricing</Link>
         </li>
+      </ul>
+      <h2>Recommender System</h2>
+      <ul>
+        <li>
+          <Link to="https://g.co/kgs/oefmyBT">Deep Neural Networks for YouTube Recommendations</Link>
+        </li>
+        <li>
+          <Link to="https://arxiv.org/pdf/1812.02353">Top-K Off-Policy Correction for a REINFORCE Recommender System</Link>
+        </li>
+        <li>
+          <Link to="https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/">Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations</Link>
+        </li>
+        <li>
+          <Link to="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2">Mixed Negative Sampling for Learning Two-tower Neural Networks in Recommendations</Link>
+        </li>
+      </ul>
+      <h2>Neural Network</h2>
+      <ul>
         <li>
           <Link to="https://arxiv.org/pdf/2202.00273">StyleGAN-XL: Scaling StyleGAN to Large Diverse Datasets</Link>
         </li>
@@ -54,12 +73,6 @@ const PaperPage = () => {
         </li>
         <li>
           <Link to="https://www.wpeebles.com/DiT">DIT</Link>
-        </li>
-        <li>
-          <Link to="https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/">Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations</Link>
-        </li>
-        <li>
-          <Link to="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2">Mixed Negative Sampling for Learning Two-tower Neural Networks in Recommendations</Link>
         </li>
       </ul>
     </Layout>
