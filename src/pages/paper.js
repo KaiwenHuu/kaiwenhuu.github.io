@@ -41,6 +41,10 @@ const PaperPage = () => {
         <li>
           <Link to="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/b9f4e78a8830fe5afcf2f0452862fb3c0d6584ea.pdf?uclick_id=d8c863ab-e440-4a7b-a88b-090afb0a1ac2">Mixed Negative Sampling for Learning Two-tower Neural Networks in Recommendations</Link>
         </li>
+        <li>
+          <Link to="https://arxiv.org/pdf/1511.06939">Session-based Recommendations with Recurrent Neural Networks
+          </Link>
+        </li>
       </ul>
       <h2>Neural Network</h2>
       <ul>
