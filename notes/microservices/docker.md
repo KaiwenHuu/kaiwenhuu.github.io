@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 date: "2025-01-11"
-slug: "attention"
+slug: "docker"
 ---
 
 ## Reviewing Basics
@@ -43,7 +43,7 @@ Then run the following commands
 
 ```
 docker build -t {image_name} . # builds a docker image
-docker run -d -p {local_port}:{image_port} --name {} {}
+docker run -d -p {local_port}:{image_port} --name {container_name}
 ```
 
 Another way to start a docker container:
