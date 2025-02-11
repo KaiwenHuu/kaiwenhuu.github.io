@@ -31,7 +31,7 @@ CMD [ "serve", "-s", "build" ]
 </code></pre>
 <p>Then run the following commands</p>
 <pre><code>docker build -t {image_name} . # builds a docker image
-docker run -d -p {local_port}:{image_port} --name {} {}
+docker run -d -p {local_port}:{image_port} --name {container_name}
 </code></pre>
 <p>Another way to start a docker container:</p>
 <pre><code>docker init
@@ -40,7 +40,7 @@ docker compose up
 <p><a href="http://localhost:%7Blocal_port%7D/">http://localhost:{local_port}/</a></p>
 <p><code>docker ps</code> shows all the docker containers that are running</p>
 <p><code>docker stop {container_id}</code> to stop a container</p>
-<p><code>docker rm {container_id}</code> to remove a container</p></div></main></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/notes/microservices/attention/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p><code>docker rm {container_id}</code> to remove a container</p></div></main></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/notes/microservices/docker/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
