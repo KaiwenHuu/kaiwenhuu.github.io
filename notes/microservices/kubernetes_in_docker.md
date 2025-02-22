@@ -10,6 +10,12 @@ slug: "kind"
 brew install kind
 ```
 
+## Download kubernetes command line tool (kubectl)
+
+```
+brew install kubectl
+```
+
 ### Create cluster
 
 ```
