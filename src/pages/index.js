@@ -128,7 +128,7 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Home">
       <p>
-        Ever since purchasing the 13 inch iPad Pro in 2019, I have extensively used it for school, work, and leisure. However, as storage has accumulated, navigating through my past notes on the tablet has become increasingly challenging. I have decided to use this space to reorganize and share anything interesting or useful that I have stored on the device. 
+        Random notes from school, work and hobby.
       </p>
       {/* <p>
         A little about myself: I studied Economics at UBC, concentrating on microeconomics, computational methods, and machine learning. My interest was particularly sparked by the challenge of implementing and scaling microeconomic models on various platforms. Since graduating, I have worked as a software engineer and data scientist in Japan. If you have similar academic or technological interests, or if you'd like to discuss some of my novice artwork, please feel free to reach out. I'm always open to connecting and sharing ideas.
