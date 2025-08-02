@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
       "c",
       "graph",
       "microservices",
+      "recommendersystems",
     ];
     if (allowedDirs.includes(dirName)) {
       createPage({

@@ -20,6 +20,11 @@ const NotesPage = () => {
           </Link>
         </li>
         <li>
+          <Link to="/notes/recommendersystems">
+            Recommender Systems
+          </Link>
+        </li>
+        <li>
           <Link to="/notes/distributedsystems">
             Distributed Systems
           </Link>
