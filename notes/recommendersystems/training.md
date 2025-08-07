@@ -117,9 +117,9 @@ class TTEModel(nn.Module):
     
     def _query_emb(self, query=None):
         if query is None:
-            self.query_tower(query_feat)
+            query_emb = self.query_tower(query_feat)
         else:
-            self.query_tower(query_feat[query])
+            query_emb = self.query_tower(query_feat[query])
         # Normalize by L2 norm
         return F.normalize(query_emb, p=2, dim=1)
 
