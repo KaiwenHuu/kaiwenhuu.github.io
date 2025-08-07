@@ -29,6 +29,10 @@ $$-\log{\frac{\exp{s(q,c)}}{\sum_{c' \in B} \exp{s(q, c')}}}$$
 
 This reduces computation from the entire corpus to just the batch contents. However, popular content still tends to be over-represented as negatives, which may unfairly penalize it.
 
+#### Accidental Negatives
+
+Want to make sure that we don't treat any overlapping query, content pair as negatives. For example, if two queries appear in the same batch, the corresponding contents should not be counted as a negative sample of one another.
+
 #### Log Q Correction
 
 A common method to reduce this bias is to apply a correction term to the score function. Specifically:
