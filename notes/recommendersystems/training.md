@@ -63,6 +63,7 @@ In this case, the definition of $$Q_c$$ depends on whether $$c \in B$$ or $$c \i
 import torch
 import torch.nn as nn
 import torch.nn.function as F
+from torch.optim import Adam
 
 class Encoder(nn.Module):
     def __init__(self, input_dim, hidden_layer_dims, output_dim, dropout):
@@ -101,11 +102,25 @@ class TTEModel(nn.Module):
         self.query_feat = query_feat.to(self.device)
         self.item_feat = item_feat.to(self.device)
 
-        self.query_tower = Encoder(query_feat.shape[1], [query_feat.shape[1], query_feat.shape[1]], emb_dim, query_dropout)
-        self.item_tower = Encoder(item_feat.shape[1], [item_feat.shape[1], item_feat.shape[1]], emb_dim, item_dropout)
+        self.query_tower = Encoder(
+            query_feat.shape[1],
+            [query_feat.shape[1], query_feat.shape[1]],
+            emb_dim,
+            query_dropout,
+        )
+        self.item_tower = Encoder(
+            item_feat.shape[1],
+            [item_feat.shape[1], item_feat.shape[1]],
+            emb_dim,
+            item_dropout,
+        )
 
         self.num_items = self.item_feat.shape[0]
         self.item_freqs = item_freqs.to(self.device)
+
+        self.to(self.device)
+        self.loss = nn.CrossEntropyLoss()
+        self.optimizer = Adam(self.parameters())
 
     def _item_emb(self, item=None):
         if item is None:
@@ -123,7 +138,7 @@ class TTEModel(nn.Module):
         # Normalize by L2 norm
         return F.normalize(query_emb, p=2, dim=1)
 
-    def fit(self, loader, mns_ratio=1, mask_accidental_negatives=True):
+    def train_eval_step(self, loader, mns_ratio=1/8, mask_accidental_negatives=True):
         # Don't need accidental negative masking and mns when evaluating
         loss = 0.0
         is_training = False
@@ -136,7 +151,7 @@ class TTEModel(nn.Module):
         for batch in loader:
             b = len(batch)
             query, item = batch
-            optimizer.zero_grad()
+            self.optimizer.zero_grad()
             with torch.set_grad_enabled(is_training):
                 query_emb = self._query_emb(query)
                 item_emb = self._item_emb(item)
@@ -167,10 +182,10 @@ class TTEModel(nn.Module):
                     accidental_negatives = (item_comparison | query_comparison) & ~eye
                     scores[:, :b][accidental_negatives] = 1e-9
                 
-                loss = criterion(scores, labels)
+                loss = self.loss(scores, labels)
                 if is_training:
                     loss.backward()
-                    optimizer.step()
+                    self.optimizer.step()
             loss += loss.data.item() * b
         return loss / loader_size
 ```
